@@ -10,6 +10,9 @@ export class DashboardComponent implements OnInit {
 
   ciudad ='';
   temperatura = 0;
+  presion = 0;
+  sensacion = 0;
+  humedad = 0;
   
   constructor(private climaService: ClimaService) { }
 
@@ -19,6 +22,9 @@ export class DashboardComponent implements OnInit {
   mClima(){
     this.climaService.clima(this.ciudad).subscribe(data => {
       this.temperatura = data.main.temp;
+      this.presion = data.main.pressure;
+      this.sensacion = data.main.feels_like;
+      this.humedad = data.main.humidity;
       
     });
   }
